@@ -5,7 +5,7 @@ const Item = ({category}) => {
     const { products } = useProduct();
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
-      <h2 className='text-2xl text-center font-semibold mt-3'>Recent Work</h2>
+      <h2 className='text-2xl text-center font-semibold   mt-3'>Recent Work</h2>
       <div className="grid grid-cols-2 p-6 md:flex md:flex-row md:w-8xl flex-wrap md:justify-center gap-6">
         {products.map((product, i) => {
           if (product.category === category) {
