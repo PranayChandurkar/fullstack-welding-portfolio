@@ -6,9 +6,7 @@ A modern, full-stack web application designed for Sarswati Welding Works. This p
 
 ## 🔗 Live Preview
 
-**[ Live Preview Link ]( )**
-
-*(Note: Add your deployed site link in the space above)*
+**[ Live Preview Link ]( https://sarswati-welding-works.netlify.app/ )**
 
 ---
 
