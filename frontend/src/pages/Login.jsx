@@ -57,8 +57,8 @@ const Login = () => {
       <div className="w-full max-w-md bg-zinc-900 border border-zinc-800 p-8 md:p-10 rounded-3xl shadow-2xl">
         <div className="text-center mb-10">
             <img
-              className="h-16 w-16 rounded-full mx-auto mb-4 border border-zinc-700"
-              src="https://imgs.search.brave.com/BAq5xttdV3CggAlkrBA3NWQAiz2Sd9x1XanMNqHhcWY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvNS9Qcm9m/aWxlLVBORy1GaWxl/LnBuZw"
+              className="h-16 w-16 rounded mx-auto mb-4 border border-zinc-700"
+              src="/logo.png"
               alt="Logo"
             />
             <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>

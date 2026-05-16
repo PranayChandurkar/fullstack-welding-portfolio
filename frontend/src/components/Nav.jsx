@@ -27,8 +27,8 @@ const Nav = () => {
       >
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-transparent group-hover:border-blue-500 transition-colors shadow-lg"
-            src="https://imgs.search.brave.com/BAq5xttdV3CggAlkrBA3NWQAiz2Sd9x1XanMNqHhcWY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvNS9Qcm9m/aWxlLVBORy1GaWxl/LnBuZw"
+            className="h-10 w-10 md:h-12 md:w-12 rounded border-2 border-transparent group-hover:border-blue-500 transition-colors shadow-lg"
+            src="/logo.png"
             alt="Logo"
           />
           <span className={`font-bold text-xl tracking-tight hidden sm:block ${scrolled || location.pathname !== '/' ? 'text-white' : 'text-white drop-shadow-md'}`}>
