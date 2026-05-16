@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Link,useNavigate} from 'react-router-dom'
+import { Link,useNavigate, Navigate} from 'react-router-dom'
 import axios from "axios"
 import {UserDataContext} from '../context/UserContext'
 
 const Login = () => {
+  // If not DEV, redirect
+  if (!import.meta.env.DEV) {
+    return <Navigate to="/" />
+  }
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -40,50 +44,61 @@ const Login = () => {
   
   
   return (
-    <div>
-      <div className="h-screen w-full  bg-zinc-900 text-white">
-        <h1 className='p-5'>Logo</h1>
-        <div className=" p-10 w-full ">
+    <div className="min-h-screen w-full bg-zinc-950 flex flex-col justify-center items-center px-6">
+      
+      <div className="absolute top-8 left-8">
+        <Link to="/" className="flex items-center gap-3">
+            <div className="h-10 w-10 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            </div>
+        </Link>
+      </div>
 
-          <form 
-          onSubmit={(e)=>{
-            sumbmitHandler(e)
-          }}
-          >
-            <h2 className='text-lg font-medium mb-2'>Email</h2>
-
-            <input 
-            value={email}
-            className='bg-transparent w-full rounded-lg px-4 py-3 text-lg mt-1 mb-4  outline-none border-2 border-zinc-800 placeholder:text-sm'  
-            onChange={(e)=>{
-              setEmail(e.target.value);
-            }}
-
-            placeholder='email@example.com'
+      <div className="w-full max-w-md bg-zinc-900 border border-zinc-800 p-8 md:p-10 rounded-3xl shadow-2xl">
+        <div className="text-center mb-10">
+            <img
+              className="h-16 w-16 rounded-full mx-auto mb-4 border border-zinc-700"
+              src="https://imgs.search.brave.com/BAq5xttdV3CggAlkrBA3NWQAiz2Sd9x1XanMNqHhcWY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvNS9Qcm9m/aWxlLVBORy1GaWxl/LnBuZw"
+              alt="Logo"
             />
-
-            <h2 className='text-lg font-medium mb-2'>Password</h2>
-
-            <input 
-            value={password}
-            onChange={(e)=>{
-              setPassword(e.target.value);
-            }}
-            className='bg-transparent w-full rounded-lg px-4 py-3 text-lg mt-1  outline-none border-2 border-zinc-800 placeholder:text-sm'  
-            type="password" 
-            placeholder='password'
-            />
-
-            <input 
-            className='block px-5 w-full text-xl text-white font-semibold mt-6 py-2 text-center bg-blue-500 rounded-lg ' 
-            type="Submit" 
-            value={"Login"}
-            />
-
-          </form>
-          <h1 className='mt-4 tex3 text-sm text-center'>New here ? <Link className='text-blue-400' to={"/register"}>Create new Account</Link></h1>
+            <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+            <p className="text-zinc-400 text-sm">Please enter your admin credentials</p>
+            <div className="mt-4 inline-block bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-xs px-3 py-1 rounded-full font-medium">Development Mode Only</div>
         </div>
-        <h1>footer</h1>
+
+        <form onSubmit={(e)=>{sumbmitHandler(e)}}>
+            <div className="mb-6">
+                <label className="block text-sm font-medium text-zinc-400 mb-2">Email Address</label>
+                <input 
+                    value={email}
+                    onChange={(e)=>{setEmail(e.target.value);}}
+                    className='w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-600'  
+                    placeholder='admin@example.com'
+                />
+            </div>
+
+            <div className="mb-8">
+                <label className="block text-sm font-medium text-zinc-400 mb-2">Password</label>
+                <input 
+                    value={password}
+                    onChange={(e)=>{setPassword(e.target.value);}}
+                    className='w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-600'  
+                    type="password" 
+                    placeholder='••••••••'
+                />
+            </div>
+
+            <button 
+                type="submit"
+                className='w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-blue-600/20'
+            >
+                Login to Dashboard
+            </button>
+        </form>
+        
+        <p className='mt-8 text-sm text-center text-zinc-500'>
+            New here? <Link className='text-blue-400 hover:text-blue-300 transition-colors font-medium ml-1' to={"/register"}>Create an Account</Link>
+        </p>
       </div>
     </div>
   )

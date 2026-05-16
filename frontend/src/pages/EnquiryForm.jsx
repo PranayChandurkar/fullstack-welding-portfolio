@@ -47,72 +47,89 @@ const EnquiryForm = () => {
 
 
   return (
-    <div>
-        <div className="p-6">
+    <div className="flex justify-center items-center py-16 px-6 bg-zinc-950 w-full min-h-[70vh]">
+        <div className="w-full max-w-2xl bg-zinc-900 p-8 md:p-12 rounded-3xl shadow-2xl border border-zinc-800">
+            <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold text-white mb-2">Send us an Enquiry</h2>
+                <p className="text-zinc-400">Fill out the form below and we'll get back to you shortly.</p>
+            </div>
             <form action="" 
             onSubmit={(e)=>{
             sumbmitHandler(e)
             }}>
-                <h2 className="text-lg font-medium mb-1">Name</h2>
-                <input 
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    type="text"
-                    name='name'
-                    className="border border-gray-300 p-2 outline-none rounded w-full mb-4"
-                    placeholder="Enter your name"
-                    required
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label className="block text-sm font-semibold text-zinc-400 mb-2">Name</label>
+                        <input 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            type="text"
+                            name='name'
+                            className="w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            placeholder="John Doe"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-semibold text-zinc-400 mb-2">Email</label>
+                        <input 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type='email'
+                            name='email'
+                            className="w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            placeholder="john@example.com"
+                            required
+                        />
+                    </div>
+                </div>
 
-                <h2 className="text-lg font-medium mb-1">Email</h2>
-                <input 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type='email'
-                    name='email'
-                    className="border border-gray-300 p-2 outline-none rounded w-full mb-4"
-                    placeholder="Enter your email"
-                    required
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label className='block text-sm font-semibold text-zinc-400 mb-2'>Phone</label>
+                        <input  
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            type="tel" 
+                            name='phone'
+                            className="w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            placeholder="+91 98765 43210"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label className='block text-sm font-semibold text-zinc-400 mb-2'>City</label>
+                        <input 
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            type="text"
+                            name='city'
+                            className="w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            placeholder="Mumbai"
+                            required
+                        />
+                    </div>
+                </div>
 
-                <h2 className='text-lg font-medium'>Phone</h2>
-                <input  
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    type="tel" 
-                    name='phone'
-                    className="border border-gray-300 p-2 outline-none rounded w-full mb-4"
-                    placeholder="Enter your phone number"
-                    required
-                />
+                <div className="mb-8">
+                    <label className='block text-sm font-semibold text-zinc-400 mb-2'>Requirements / Comment</label>
+                    <textarea 
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                        className="w-full bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                        placeholder="Tell us about your project..."
+                        name='comment'
+                        rows="4"
+                        required
+                    ></textarea>
+                </div>
 
-                <h2 className='text-lg font-medium'>City</h2>
-                <input 
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    type="text"
-                    name='city'
-                    className="border border-gray-300 p-2 outline-none rounded w-full mb-4"
-                    placeholder="Enter your city"
-                    required
-                />
-
-                <h2 className='text-lg font-medium'>Comment</h2>
-                <textarea 
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                    className="border border-gray-300 p-2 outline-none resize-none rounded w-full mb-4"
-                    placeholder="Enter your comment or enquiry"
-                    name='comment'
-                    rows="3"
-                    required
-                ></textarea>
-
-                <input  
+                <button  
                     type="submit" 
-                    className="bg-gray-300 text-black px-4 font-medium py-2 mb-3 rounded-md cursor-pointer"
-                    value="Submit"
-                />
+                    className="w-full bg-blue-600 text-white font-semibold text-lg py-4 rounded-xl shadow-md hover:bg-blue-700 hover:shadow-lg transition-all hover:-translate-y-0.5"
+                >
+                    Submit Enquiry
+                </button>
             </form>
         </div>
     </div>
