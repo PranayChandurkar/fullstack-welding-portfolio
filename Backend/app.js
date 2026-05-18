@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 const allowedOrigins = [
+  "http://localhost:5173",
   "https://sarswati-welding-works.netlify.app",
 ];
 

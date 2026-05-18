@@ -6,14 +6,17 @@ const FrontContainer = createContext();
 export const ContainerProvider = ({ children }) => {
 
   const [container, setContainer] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchContainer = async () => {
-    
+    setLoading(true);
     try {
       const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/containers`);
       setContainer(res.data);
     } catch (error) {
       console.error("Failed to fetch Container", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,7 +55,7 @@ const response = await axios.post(
   }, []);
 
   return (
-    <FrontContainer.Provider value={{ container, uploadContainer }}>
+    <FrontContainer.Provider value={{ container, loading, uploadContainer }}>
       {children}
     </FrontContainer.Provider>
   );
